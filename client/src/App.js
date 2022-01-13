@@ -7,6 +7,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Home from './pages/Home';
+
 
 
 
@@ -34,11 +36,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
-            <Route exact path='/' component={} />
-            <Route exact path='/' component={} />
-            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+            <Route exact path='/' component={Home} />
+            {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
         </>
       </Router>
