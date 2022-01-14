@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
+import SearchAppBar from './components/SearchAppBar';
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <>
           {/* <Navbar /> */}
           <Switch>
+            <SearchAppBar />
             <Route exact path='/' component={Home} />
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
