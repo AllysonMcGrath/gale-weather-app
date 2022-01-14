@@ -1,17 +1,16 @@
 import React from "react";
-import Weather from "../components/Weather";
-import Button from '@mui/material/Button';
-
+import SearchAppBar from "../components/SearchAppBar";
+import SearchBar from "../components/SearchBar";
+import PreferenceToggle from "../components/PreferenceToggle";
 
 const Home = () => {
-  return (
-    <div className="container">
-        <h1> Placeholder header</h1>
-        <Button variant="contained">test button</Button>
-      <Weather />
-    </div>
-  );
+    return (
+        <div>
+            <SearchAppBar />
+            <SearchBar />
+            <PreferenceToggle />
+        </div>
+    );
 };
 
 export default Home;
-
