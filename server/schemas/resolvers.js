@@ -8,7 +8,7 @@ const resolvers = {
         if (context.user) {
             const userData = await User.findOne({ _id: context.user._id })
               .select('-__v -password')
-              .populate('savedCities')
+              .populate('savedCities');
   
             return userData;
         }
@@ -43,9 +43,8 @@ const resolvers = {
       // add token decrypt it take out user _id
       addCity: async (parent, { input }, context) => {
         // const user = await authenticate(token);
-
         if (context.user) {
-          const updatedUser = await User.findByIdAndUpdate(
+          const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $addToSet: { savedCities: input } },
             { new: true }
@@ -56,7 +55,7 @@ const resolvers = {
       },
       removeCity: async (parent, { cityId }, context) => {
         if (context.user) {
-          const updatedUser = await User.findByIdAndUpdate(
+          const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $pull: { savedCities: { cityId } } },
             { new: true }

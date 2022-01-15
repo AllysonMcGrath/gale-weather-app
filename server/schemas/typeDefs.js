@@ -10,7 +10,7 @@ const typeDefs = gql`
     }
 
     type City {
-        cityName: String
+        cityName: String!
         cityId: ID
     }
 
@@ -23,10 +23,14 @@ const typeDefs = gql`
         me: User
     }
 
+    input cityInput {
+        cityName: String
+    }
+
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addCity(cityName: String!, cityId: String): User
+        addCity(input: cityInput): User
         removeCity(cityId: String): User
     }
 
