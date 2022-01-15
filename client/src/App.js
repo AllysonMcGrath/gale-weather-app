@@ -11,6 +11,8 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import WeatherCard from "./components/WeatherCards";
 import SearchAppBar from "./components/NavBar";
+import SignIn from "./components/SignIn";
+
 
 
 const httpLink = createHttpLink({
@@ -40,6 +42,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/signin' component={SignIn} />
             <Route render={() => <h1>Wrong page!</h1>} />
             <SearchAppBar />
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}

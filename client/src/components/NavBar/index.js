@@ -147,11 +147,10 @@ export default function NavBar() {
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             🌬 GALE
-            <Link href="/" underline="none">Link</Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <Button color="inherit">Login</Button>  
+          <Button color="inherit" href="signin">Login</Button>  
           {/* need to add onclick */}
             <IconButton
               size="large"
