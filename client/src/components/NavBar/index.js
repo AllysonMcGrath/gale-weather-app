@@ -145,7 +145,7 @@ export default function NavBar() {
                         component="div"
                         sx={{ display: { xs: "none", sm: "block" } }}
                     >
-                        🌬 GALE
+                        <Link href="/" underline="none" color="white"> 🌬 GALE </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
