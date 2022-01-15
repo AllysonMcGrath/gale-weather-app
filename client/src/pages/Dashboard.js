@@ -8,9 +8,15 @@ const Dashboard = () => {
     return (
         <div>
             <NavBar />
+            
+            <p>DASHBOARD</p>
+
             <SearchBar />
+
             <PreferenceToggle />
+
             <WeatherCard />
+
         </div>
     );
 };
