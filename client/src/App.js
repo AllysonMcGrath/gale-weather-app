@@ -9,9 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import Navbar from './components/Nav'
-import WeatherCard from "./components/WeatherCards";
-import SearchAppBar from "./components/NavBar";
+import NavBar from './components/NavBar'
 import SignIn from "./components/SignIn";
 
 
@@ -40,6 +38,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+        <NavBar></NavBar>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />
