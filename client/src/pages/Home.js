@@ -1,17 +1,18 @@
 import React from "react";
-import Weather from "../components/Weather";
-import Button from '@mui/material/Button';
+import SignUp from '../components/SignUp'
+import NavBar from "../components/NavBar";
+
 
 
 const Home = () => {
-  return (
-    <div className="container">
-        <h1> Placeholder header</h1>
-        <Button variant="contained">test button</Button>
-      <Weather /> 
-    </div>
-  );
+    return (
+        <div>
+          HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE 
+          <NavBar />
+
+          <SignUp />
+        </div>
+    );
 };
 
 export default Home;
-

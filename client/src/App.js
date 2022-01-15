@@ -13,6 +13,10 @@ import Weather from './components/Weather';
 
 
 
+import Dashboard from './pages/Dashboard';
+import WeatherCard from "./components/WeatherCards";
+// import NavBar from "./components/NavBar";
+import SignIn from "./components/SignIn";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,12 +42,15 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Navbar /> */}
           <Switch>
             <SearchAppBar />
             <Weather />
-            <Route exact path='/' component={Home} />
             {/* <Route exact path='/Display' component={Display} /> */}
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/signin' component={SignIn} />
+            <Route render={() => <h1>Wrong page!</h1>} />
+            {/* <NavBar /> */}
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
         </>
