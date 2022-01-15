@@ -8,9 +8,10 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
-
-import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import WeatherCard from "./components/WeatherCards";
+import SearchAppBar from "./components/NavBar";
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
