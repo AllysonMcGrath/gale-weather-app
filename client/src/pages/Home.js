@@ -1,14 +1,16 @@
 import React from "react";
-import SearchAppBar from "../components/SearchAppBar";
-import SearchBar from "../components/SearchBar";
-import PreferenceToggle from "../components/PreferenceToggle";
+import SignUp from '../components/SignUp'
+import NavBar from "../components/NavBar";
+
+
 
 const Home = () => {
     return (
         <div>
-            <SearchAppBar />
-            <SearchBar />
-            <PreferenceToggle />
+          HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE 
+          <NavBar />
+
+          <SignUp />
         </div>
     );
 };
