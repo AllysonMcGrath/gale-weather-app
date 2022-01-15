@@ -10,6 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import SearchAppBar from './components/SearchAppBar';
 
+// import Dashboard from './pages/Dashboard';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,10 +36,11 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Navbar /> */}
           <Switch>
-            <SearchAppBar />
             <Route exact path='/' component={Home} />
+            {/* <Route exact path='/dashboard' component={Dashboard} /> */}
+            <Route render={() => <h1>Wrong page!</h1>} />
+            <SearchAppBar />
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
         </>
