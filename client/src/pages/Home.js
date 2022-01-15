@@ -8,7 +8,7 @@ const Home = () => {
     <div className="container">
         <h1> Placeholder header</h1>
         <Button variant="contained">test button</Button>
-      <Weather />
+      <Weather /> 
     </div>
   );
 };

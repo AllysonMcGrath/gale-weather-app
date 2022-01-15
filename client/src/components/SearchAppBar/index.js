@@ -15,6 +15,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
+import Weather from "../Weather";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -165,6 +166,7 @@ export default function PrimarySearchAppBar() {
           </Box>
         </Toolbar>
       </AppBar>
+      <Weather />
       {renderMobileMenu}
       {renderMenu}
     </Box>
