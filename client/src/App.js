@@ -11,8 +11,6 @@ import Home from './pages/Home';
 import SearchAppBar from './components/SearchAppBar';
 
 
-
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
