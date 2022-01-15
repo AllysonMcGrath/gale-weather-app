@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -29,8 +31,10 @@ const Dashboard = (props) => {
                 </div>
                 ) :  
                 <div>
-                    <h2>You need to be logged in!</h2>
-                    <h4>Login</h4>
+                    <h2>You need to be signed in!</h2>
+                    <Link to="/signin">
+                    Go to sign in
+                </Link>
                 </div>
                }
         </div>
