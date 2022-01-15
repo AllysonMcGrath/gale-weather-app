@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -17,7 +17,7 @@ module.exports = {
     }
 
     if (!token) {
-      return res.status(400).json({ message: 'You have no token!' });
+      return req;
     }
 
     // verify token and get user data out of it
@@ -25,24 +25,24 @@ module.exports = {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      return res.status(400).json({ message: 'invalid token!' });
+      console.log('Invalid token');
     }
 
     // send to next endpoint
     return req;
   },
-  authenticate: async function(auth){
-    if (!auth) throw new AuthenticationError('you must be logged in');
+  // authenticate: async function(auth){
+  //   if (!auth) throw new AuthenticationError('you must be logged in');
 
-    const token = auth.split('Bearer ')[1];
-    console.ll
-    if (!token) throw new AuthenticationError('you should provide a token');
+  //   const token = auth.split('Bearer ')[1];
+  //   console.ll
+  //   if (!token) throw new AuthenticationError('you should provide a token');
 
-    return await jwt.verify(token, secret, (err, decoded) => {
-      if (err) throw new AuthenticationError('invalid token');
-      return decoded;
-    });
-  },
+  //   return await jwt.verify(token, secret, (err, decoded) => {
+  //     if (err) throw new AuthenticationError('invalid token');
+  //     return decoded;
+  //   });
+  // },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
     var token = jwt.sign({ data: payload }, secret, { expiresIn: expiration });

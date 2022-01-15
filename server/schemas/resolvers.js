@@ -1,22 +1,16 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, City } = require('../models');
 const { signToken, authenticate } = require('../utils/auth');
 
 const resolvers = {
     Query: {
       me: async (parent, args, context) => {
-        const user = await authenticate(context.authorization);
-        if (user) {
-          try {
-  
-  
-            const userData = await User.findOne({ _id: user.data._id })
+        if (context.user) {
+            const userData = await User.findOne({ _id: context.user._id })
               .select('-__v -password')
+              .populate('savedCities')
   
             return userData;
-  
-          } catch (err) {
-          }
         }
   
         throw new AuthenticationError('Not logged in');
@@ -45,6 +39,31 @@ const resolvers = {
   
         const token = signToken(user);
         return { token, user };
+      },
+      // add token decrypt it take out user _id
+      addCity: async (parent, { input }, context) => {
+        // const user = await authenticate(token);
+
+        if (context.user) {
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { savedCities: input } },
+            { new: true }
+          ).populate('savedCities');
+          return updatedUser;
+        }
+        throw new AuthenticationError('You must be logged in to save a city')
+      },
+      removeCity: async (parent, { cityId }, context) => {
+        if (context.user) {
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $pull: { savedCities: { cityId } } },
+            { new: true }
+          );
+          return updatedUser;
+        }
+        throw new AuthenticationError('You need to be logged in')
       }
     }
 };
