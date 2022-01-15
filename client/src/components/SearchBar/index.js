@@ -35,14 +35,14 @@ import Autocomplete from "@mui/material/Autocomplete";
 export default function FreeSolo() {
     return (
         <Stack spacing={2} sx={{ width: 300 }}>
-            <Autocomplete
+            {/* <Autocomplete
                 id="free-solo-demo"
                 freeSolo
                 options={top100Films.map((option) => option.title)}
                 renderInput={(params) => (
-                    <TextField {...params} label="freeSolo" />
+                    <TextField {...params} label="Search City" />
                 )}
-            />
+            /> */}
             <Autocomplete
                 freeSolo
                 id="free-solo-2-demo"
@@ -51,7 +51,7 @@ export default function FreeSolo() {
                 renderInput={(params) => (
                     <TextField
                         {...params}
-                        label="Search input"
+                        label="Search City"
                         InputProps={{
                             ...params.InputProps,
                             type: "search",
