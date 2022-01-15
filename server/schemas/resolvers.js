@@ -53,11 +53,11 @@ const resolvers = {
         }
         throw new AuthenticationError('You must be logged in to save a city')
       },
-      removeCity: async (parent, { cityId }, context) => {
+      removeCity: async (parent, { cityName }, context) => {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { savedCities: { cityId } } },
+            { $pull: { savedCities: { cityName } } },
             { new: true }
           );
           return updatedUser;

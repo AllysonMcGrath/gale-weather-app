@@ -40,8 +40,8 @@ export const ADD_CITY = gql`
 `;
 
 export const REMOVE_CITY = gql `
-    mutation removeCity($cityId: String!) {
-        removeCity(cityId: $cityId) {
+    mutation removeCity($cityName: String!) {
+        removeCity(cityName: $cityName) {
             _id
             username
             savedCity {
