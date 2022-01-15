@@ -5,7 +5,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-// THE FORM GROUP SHOULD BE IN THE CONTAINER, AND FORMCONTROLLABEL SHOULD BE THE PREFERENCETOGGLE COMPONENT ITSELF
+// THE FORM GROUP SHOULD BE IN THE CONTAINER, AND FORMCONTROLLABEL SHOULD BE THE PREFERENCETOGGLE COMPONENT ITSELF--
 
 export default function FormControlLabelPosition() {
     return (
