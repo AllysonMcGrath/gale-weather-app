@@ -7,11 +7,10 @@ import NavBar from "../components/NavBar";
 const Home = () => {
     return (
         <div>
-          THIS IS THE HOME PAGE
+          HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE 
           <NavBar />
 
           <SignUp />
-          Please login sir
         </div>
     );
 };
