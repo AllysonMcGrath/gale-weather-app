@@ -1,5 +1,4 @@
 import React from 'react';
-import CityList from '../components/CityList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
