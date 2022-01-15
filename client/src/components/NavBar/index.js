@@ -152,8 +152,11 @@ export default function NavBar() {
                         <Button color="inherit" href="signin">
                             Login
                         </Button>
+                        <Button color="inherit" href="dashboard">
+                            dashboardTEMP
+                        </Button>
                         {/* need to add onclick */}
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             edge="end"
                             aria-label="account of current user"
@@ -163,7 +166,7 @@ export default function NavBar() {
                             color="inherit"
                         >
                             <AccountCircle />
-                        </IconButton>
+                        </IconButton> */}
                     </Box>
                 </Toolbar>
             </AppBar>
