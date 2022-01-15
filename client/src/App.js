@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard;
+import Dashboard from './pages/Dashboard';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
