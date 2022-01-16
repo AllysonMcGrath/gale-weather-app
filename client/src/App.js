@@ -42,7 +42,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <NavBar></NavBar>
           <Switch>
             <SearchAppBar />
             <Weather />
