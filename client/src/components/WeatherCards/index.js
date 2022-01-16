@@ -7,39 +7,47 @@ import Typography from '@mui/material/Typography';
 import weatherData from 'src/weather.json';
 
 
-function WeatherCard(props) {
-  const [weatherList, setWeatherList] = useState(weatherData);
+export default function WeatherCard(props) {
+  const { data } = props;
+  const URL_icon = " http://openweathermap.org/img/wn/" +
+  `${data.cod != 404 ? data.weather[0].icon : null}` +
+  ".png";
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        title="Today's Weather"
-        subheader="Actual Date:"
-      /> {props.date}
-      <CardMedia
+        // avatar={
+        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+        //     R
+        //   </Avatar>
+        // }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={data.name}
+        subheader={new Date().toLocaleTimeString()}
+      />
+      <CardMedia className='CardMedia'
         component="img"
         height="194"
         //weather gif from canva below
-        image="image file"
+        image={URL_icon}
         alt="Weather GIF"
         {...props.image}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          <ul>
-          <li>
-            <strong>Temperature:</strong> {props.temp}
-          </li>
-          <li>
-            <strong>Humidity:</strong> {props.humidity}
-          </li>
-          <li>
-            <strong>UVI:</strong> {props.uvi}
-          </li>
-          <li>
-            <strong>Feels Like:</strong> {props.feelsLike}
-          </li>
-        </ul>
+          <div>Temp: {data.main.temp} °F </div>
+          <div>Humidity: {data.main.humidity} RH</div>
+          <div>Visibility: {data.visibility} </div>
+          <div>Wind speed: {data.wind.speed} m/s</div>
         </Typography>
         </CardContent>
     </Card>

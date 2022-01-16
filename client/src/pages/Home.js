@@ -9,8 +9,10 @@ const Home = (props) => {
   return (
     <div>
         <div>
-            <img src='' alt='demo of dashboard with weather display' />
-            <div>Carousel of images</div>
+          HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE HOME PAGE 
+          <NavBar />
+
+          <SignUp />
         </div>
         <SignUp />
     </div>

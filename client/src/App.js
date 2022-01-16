@@ -8,11 +8,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
+import SearchAppBar from './components/SearchAppBar';
+import Weather from './components/Weather';
+
+
+
 import Dashboard from './pages/Dashboard';
-import NavBar from './components/NavBar'
+import WeatherCard from "./components/WeatherCards";
+// import NavBar from "./components/NavBar";
 import SignIn from "./components/SignIn";
-
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,10 +44,15 @@ function App() {
         <>
         <NavBar></NavBar>
           <Switch>
+            <SearchAppBar />
+            <Weather />
+            {/* <Route exact path='/Display' component={Display} /> */}
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/signin' component={SignIn} />
             <Route render={() => <h1>Wrong page!</h1>} />
+            {/* <NavBar /> */}
+            {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
         </>
       </Router>
@@ -51,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

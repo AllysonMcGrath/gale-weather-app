@@ -48,22 +48,16 @@ const Dashboard = (props) => {
   return (
     <main>
         <div>
-            {loggedIn ? (
-            <div>            
-                <h2>Hello {userData.username}!</h2>
-                <div>
-                <Weather/>
-                <PreferenceToggle />
-                <SearchBar />
-                {/* <SearchResults /> */}
-                </div>
-                </div>
-                ) :  
-                <div>
-                    <h2>You need to be logged in!</h2>
-                    <h4>Login</h4>
-                </div>
-               }
+            <NavBar />
+            
+            <p>DASHBOARD</p>
+
+            <SearchBar />
+
+            <PreferenceToggle />
+
+            <WeatherCard />
+
         </div>
     </main>
   );
