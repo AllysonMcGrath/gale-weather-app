@@ -41,7 +41,7 @@ function App() {
         <>
           <Switch>
             <SearchAppBar />
-            <Weather />
+            {/* <Weather /> */}
             {/* <Route exact path='/Display' component={Display} /> */}
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />

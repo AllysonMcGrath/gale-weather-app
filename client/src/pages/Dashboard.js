@@ -9,13 +9,13 @@ const Dashboard = () => {
         <div>
             <NavBar />
             
-            <p>DASHBOARD</p>
+            <p>DASHBOARD TEMPLATE need to fix container</p>
 
             <SearchBar />
 
             <PreferenceToggle />
 
-            <WeatherCard />
+            {/* <WeatherCard /> */}
 
         </div>
     );
