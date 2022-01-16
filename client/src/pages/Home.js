@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import SignUp from '../components/SignUp'
 
+
 const Home = (props) => {
 
   return (
