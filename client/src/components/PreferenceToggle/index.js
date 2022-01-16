@@ -33,7 +33,7 @@ export default function FormControlLabelPosition() {
                 <FormControlLabel
                     value="start"
                     control={<Switch color="primary" />}
-                    label="Air Quality"
+                    label="Wind Speed"
                     labelPlacement="start"
                 />
             </FormGroup>

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import React from 'react';
 import SignUp from '../components/SignUp'
+import NavBar from "../components/NavBar";
+import Weather from "../components/Weather";
 
-const Home = (props) => {
+
+const Home = () => {
 
   return (
     <div>

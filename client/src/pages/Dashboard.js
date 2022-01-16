@@ -38,9 +38,8 @@ const Dashboard = (props) => {
                 </div>
                {/* } */}
         </div>
-    </main>
-  );
+      </main>
+    );
 };
 
 export default Dashboard;
-

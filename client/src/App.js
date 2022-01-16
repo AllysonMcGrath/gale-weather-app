@@ -8,6 +8,11 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
+import SearchAppBar from './components/SearchAppBar';
+import Weather from './components/Weather';
+
+
+
 import Dashboard from './pages/Dashboard';
 import NavBar from './components/NavBar'
 import SignIn from "./pages/Login";
@@ -50,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
