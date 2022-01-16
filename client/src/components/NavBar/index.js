@@ -142,18 +142,18 @@ export default function NavBar() {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="div"
-                        sx={{ display: { xs: "none", sm: "block" } }}
+                        component="span"
+                        sx={{ display: { xs: "flex", sm: "block" } }}
                     >
                         <Link href="/" underline="none" color="white"> 🌬 GALE </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                    <Box sx={{ display: { xs: "flex", md: "flex" } }}>
                         <Button color="inherit" href="signin">
                             Login
                         </Button>
                         <Button color="inherit" href="dashboard">
-                            dashboardTEMP
+                            Dashboard
                         </Button>
                         {/* need to add onclick */}
                         {/* <IconButton
