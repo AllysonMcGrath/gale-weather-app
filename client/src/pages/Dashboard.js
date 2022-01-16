@@ -25,7 +25,6 @@ const Dashboard = (props) => {
                 <div>
                 <Weather/>
                 <PreferenceToggle />
-                <SearchBar />
                 {/* <SearchResults /> */}
                 </div>
                 </div>
