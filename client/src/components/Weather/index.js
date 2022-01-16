@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import Display from "../Display";
+//import Display from "../Display";
+//import WeatherCard from "../WeatherCards";
 import "../../App.css";
+import WeatherCard from "../WeatherCards";
+import "../../index.css";
 
 function Weather() {
-  //const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState([]);
   const [form, setForm] = useState({
     city: "",
   });
@@ -21,7 +24,7 @@ function Weather() {
         .then((data) => data);
       console.log(data);
 
-      //setWeather({ data: data });
+      setWeather({ data: data });
     }
   }
 
@@ -34,26 +37,27 @@ function Weather() {
     }
   };
   return (
-    <div className="weather">
-      <span className="title">Customize your dashboard</span>
+    <div className="wrap">
+      <span className="title"></span>
       <br />
-      <form>
+      <form className="search">
         <input
           type="text"
-          placeholder="city"
+          placeholder="Search your city"
+          className="searchTerm"
           name="city"
           onChange={(e) => handleChange(e)}
         />
         &nbsp;&nbsp;
-        <button className="btn" onClick={(e) => weatherData(e)}>
+        <button className="searchButton" onClick={(e) => weatherData(e)}>
           Search
         </button>
       </form>
 
-      {/* {console.log(weather)} */}
-      {/* {weather.data !== undefined ? (
-        <div><Display data={weather.data} /></div>
-      ) : null} */}
+      {console.log(weather)}
+      {weather.data !== undefined ? (
+        <div><WeatherCard data={weather.data} /></div>
+      ) : null}
     </div>
   );
 }

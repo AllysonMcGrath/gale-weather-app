@@ -26,7 +26,11 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function WeatherCard() {
+export default function WeatherCard(props) {
+  const { data } = props;
+  const URL_icon = " http://openweathermap.org/img/wn/" +
+  `${data.cod != 404 ? data.weather[0].icon : null}` +
+  ".png";
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -46,19 +50,22 @@ export default function WeatherCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Today's Weather"
-        subheader="Actual Date"
+        title={data.name}
+        subheader={new Date().toLocaleTimeString()}
       />
-      <CardMedia
+      <CardMedia className='CardMedia'
         component="img"
         height="194"
         //weather gif from canva below
-        image="image file"
+        image={URL_icon}
         alt="Weather GIF"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Weather Data
+          <div>Temp: {data.main.temp} °F </div>
+          <div>Humidity: {data.main.humidity} RH</div>
+          <div>Visibility: {data.visibility} </div>
+          <div>Wind speed: {data.wind.speed} m/s</div>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
