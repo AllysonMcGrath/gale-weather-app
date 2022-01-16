@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { GET_ME } from '../utils/queries';
 
 import PreferenceToggle from '../components/PreferenceToggle';
 import SearchBar from '../components/SearchBar';
@@ -13,7 +13,7 @@ import Weather from '../components/Weather';
 
 
 const Dashboard = (props) => {
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data: userData } = useQuery(GET_ME);
   const loggedIn = Auth.loggedIn();
 
   return (
