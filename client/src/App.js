@@ -10,9 +10,6 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import SearchAppBar from './components/SearchAppBar';
 import Weather from './components/Weather';
-
-
-
 import Dashboard from './pages/Dashboard';
 import WeatherCard from "./components/WeatherCards";
 // import NavBar from "./components/NavBar";
