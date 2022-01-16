@@ -145,15 +145,18 @@ export default function NavBar() {
                         component="div"
                         sx={{ display: { xs: "none", sm: "block" } }}
                     >
-                        🌬 GALE
+                        <Link href="/" underline="none" color="white"> 🌬 GALE </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
                         <Button color="inherit" href="signin">
                             Login
                         </Button>
+                        <Button color="inherit" href="dashboard">
+                            dashboardTEMP
+                        </Button>
                         {/* need to add onclick */}
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             edge="end"
                             aria-label="account of current user"
@@ -163,7 +166,7 @@ export default function NavBar() {
                             color="inherit"
                         >
                             <AccountCircle />
-                        </IconButton>
+                        </IconButton> */}
                     </Box>
                 </Toolbar>
             </AppBar>

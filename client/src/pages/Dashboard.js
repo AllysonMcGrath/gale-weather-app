@@ -19,9 +19,9 @@ const Dashboard = (props) => {
   return (
     <main>
         <div>
-            {loggedIn ? (
+            {/* {loggedIn ? ( */}
             <div>            
-                <h2>Hello {userData.username}!</h2>
+                {/* <h2>Hello {userData.username}!</h2> */}
                 <div>
                 <Weather/>
                 <PreferenceToggle />
@@ -29,14 +29,14 @@ const Dashboard = (props) => {
                 {/* <SearchResults /> */}
                 </div>
                 </div>
-                ) :  
+                {/* ) :   */}
                 <div>
                     <h2>You need to be signed in!</h2>
                     <Link to="/signin">
                     Go to sign in
                 </Link>
                 </div>
-               }
+               {/* } */}
         </div>
     </main>
   );

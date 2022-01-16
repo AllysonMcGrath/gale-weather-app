@@ -11,23 +11,12 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-<<<<<<< HEAD
   context: authMiddleware
   // context: ({req}) => {
   //   const authorization = req.headers.authorization || '';
   //   return {
   //     authorization
   //   };
-=======
-  context: authMiddleware,
-  // context: ({req}) => {
-  //   const token = req.headers.authorization || '';
-
-  //   const user = authenticate(token);
-
-  //   return { user };
-  // },
->>>>>>> f7f2f3fc881ae83d952755eed6cdf9ddfa71c6f6
 });
 
 server.applyMiddleware({ app });

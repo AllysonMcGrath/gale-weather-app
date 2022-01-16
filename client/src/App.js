@@ -13,8 +13,6 @@ import NavBar from './components/NavBar'
 import SignIn from "./pages/Login";
 
 
-
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -39,7 +37,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <NavBar></NavBar>
+        <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />

@@ -9,7 +9,7 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
 
-    const loggedIn = Auth.loggedIn();
+const loggedIn = Auth.loggedIn();
 
   return (
     <div>
