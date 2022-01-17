@@ -41,7 +41,6 @@ const theme = createTheme();
 const SignIn = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
-  
     // update state based on form input changes
     const handleChange = (event) => {
       const { name, value } = event.target;
@@ -55,12 +54,11 @@ const SignIn = (props) => {
     // submit form
     const handleSubmit = async (event) => {
       event.preventDefault();
-  
+
       try {
         const { data } = await login({
           variables: { ...formState },
         });
-  
         Auth.login(data.login.token);
       } catch (e) {
         console.error(e);
@@ -135,6 +133,7 @@ const SignIn = (props) => {
                         >
                             Sign In
                         </Button>
+                        {error && <div>Login failed</div>}
                         {/* <Grid container>
                             <Grid item>
                                 <Link href="/" variant="body2">

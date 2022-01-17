@@ -7,34 +7,38 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 import PreferenceToggle from '../components/PreferenceToggle';
-import SearchBar from '../components/SearchBar';
-// import SearchResults from './components/SearchResults';
 import Weather from '../components/Weather';
 
 
 const Dashboard = (props) => {
-  const { data: userData } = useQuery(GET_ME);
-  const loggedIn = Auth.loggedIn();
 
+  const { loading, data } = useQuery(GET_ME);
+
+  const userData = data?.me || data?.user || {};
+  console.log(Auth.loggedIn())
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!Auth.loggedIn()) {
+    return (
+      <div>
+        <h2>You need to be signed in!</h2>
+        <Link to="/signin">
+        Go to sign in
+        </Link>
+      </div>
+    );
+  }
+console.log(userData);
   return (
     <main>
         <div>
-            {/* {loggedIn ? ( */}
-            <div>            
-                {/* <h2>Hello {userData.username}!</h2> */}
-                <div>
-                <Weather/>
-                <PreferenceToggle />
-                </div>
-                </div>
-                {/* ) :   */}
-                <div>
-                    <h2>You need to be signed in!</h2>
-                    <Link to="/signin">
-                    Go to sign in
-                </Link>
-                </div>
-               {/* } */}
+            <h2>Hello {userData.username}!</h2>
+            <div>
+              <Weather/>
+              <PreferenceToggle />
+            </div>
         </div>
       </main>
     );
