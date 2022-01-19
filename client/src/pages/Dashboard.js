@@ -7,6 +7,8 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 import PreferenceToggle from '../components/PreferenceToggle';
+import SearchBar from '../components/SearchBar';
+// import SearchResults from './components/SearchResults';
 import Weather from '../components/Weather';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
@@ -47,32 +49,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = (props) => {
-<<<<<<< HEAD
-=======
   const classes = useStyles();
   const { data: userData } = useQuery(GET_ME);
   const loggedIn = Auth.loggedIn();
->>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
 
-  const { loading, data } = useQuery(GET_ME);
-
-  const userData = data?.me || data?.user || {};
-  console.log(Auth.loggedIn())
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!Auth.loggedIn()) {
-    return (
-      <div>
-        <h2>You need to be signed in!</h2>
-        <Link to="/signin">
-        Go to sign in
-        </Link>
-      </div>
-    );
-  }
-console.log(userData);
   return (
     <Grid container direction='row'spacing={3,2} justify='center' classname={classes.grid}>
       <Grid item xs={12} md={6} >
@@ -124,13 +104,6 @@ console.log(userData);
       
     <main>
         <div>
-<<<<<<< HEAD
-            <h2>Hello {userData.username}!</h2>
-            <div>
-              <Weather/>
-              <PreferenceToggle />
-            </div>
-=======
             {/* {loggedIn ? ( */}
             <div>            
                 {/* <h2>Hello {userData.username}!</h2> */}
@@ -147,7 +120,6 @@ console.log(userData);
                 </Link> */}
                 </div>
                {/* } */}
->>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
         </div>
       </main>
       

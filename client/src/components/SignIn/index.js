@@ -37,10 +37,7 @@ const theme = createTheme();
 const SignIn = (props) => {
     const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN_USER);
-<<<<<<< HEAD
-=======
 
->>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
     // update state based on form input changes
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -53,24 +50,6 @@ const SignIn = (props) => {
 
     // submit form
     const handleSubmit = async (event) => {
-<<<<<<< HEAD
-      event.preventDefault();
-
-      try {
-        const { data } = await login({
-          variables: { ...formState },
-        });
-        Auth.login(data.login.token);
-      } catch (e) {
-        console.error(e);
-      }
-  
-      // clear form values
-      setFormState({
-        email: '',
-        password: '',
-      });
-=======
         event.preventDefault();
 
         try {
@@ -88,7 +67,6 @@ const SignIn = (props) => {
             email: "",
             password: "",
         });
->>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
     };
 
     return (
@@ -147,17 +125,6 @@ const SignIn = (props) => {
                         >
                             Sign In
                         </Button>
-<<<<<<< HEAD
-                        {error && <div>Login failed</div>}
-                        {/* <Grid container>
-                            <Grid item>
-                                <Link href="/" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid> */}
-=======
->>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
