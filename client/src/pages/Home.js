@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from '../components/SignUp'
 import NavBar from "../components/NavBar";
-import Weather from "../components/Weather";
+import SavedCards from "../components/SavedCards";
 
 
 const Home = () => {
@@ -13,6 +13,7 @@ const Home = () => {
             <div>Carousel of images</div>
         </div>
         <SignUp />
+        {/* <SavedCards /> */}
     </div>
   );
 };
