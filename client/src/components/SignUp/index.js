@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,6 +11,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
 
 function Copyright(props) {
     return (
@@ -32,6 +36,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+    const [addUser] = useMutation(ADD_USER);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -40,6 +46,15 @@ export default function SignUp() {
             email: data.get("email"),
             password: data.get("password"),
         });
+
+        addUser({
+            variables: { 
+                username: data.get("username"),
+                email: data.get("email"),
+                password: data.get("password")
+            }
+        });
+
     };
 
     return (
