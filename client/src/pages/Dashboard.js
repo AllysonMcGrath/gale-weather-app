@@ -58,7 +58,7 @@ const Dashboard = (props) => {
     return <div>Loading...</div>;
   }
 
-  if (!Auth.loggedIn()) {
+  if (!loggedIn) {
     return (
       <div>
         <h2>You need to be signed in!</h2>
