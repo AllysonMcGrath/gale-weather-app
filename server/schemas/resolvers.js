@@ -48,7 +48,7 @@ const resolvers = {
             { _id: context.user._id },
             { $addToSet: { savedCities: input } },
             { new: true }
-          ).populate('savedCities');
+          ) //.populate('savedCities');
           return updatedUser;
         }
         throw new AuthenticationError('You must be logged in to save a city')
