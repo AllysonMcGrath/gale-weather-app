@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -33,6 +34,12 @@ export default function WeatherCard(props) {
     setExpanded(!expanded);
   };
 
+  const rainImg = ('./rain.mp4');
+
+  if (data.weather.icon === "01d"){
+   return  rainImg
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -40,12 +47,21 @@ export default function WeatherCard(props) {
         subheader={new Date().toLocaleTimeString()}
       />
       <CardMedia className='CardMedia'
+<<<<<<< HEAD
         component="img"
         // height="194"
         //weather gif from canva below
         image={URL_icon}
         alt="Weather GIF"
         style={{height: 100, width: 100}}
+=======
+        component="video"
+        height="200"
+        autoPlay
+        //weather gif from canva below
+        image={rainImg}
+        title="Weather GIF"
+>>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
@@ -66,12 +82,13 @@ export default function WeatherCard(props) {
         <CardContent>
           <Typography paragraph>More Information:</Typography>
           <Typography variant="body2" color="text.primary">
-          <div>Humidity: {data.main.humidity} RH</div>
+          <div>Humidity: {data.main.humidity} %</div>
           <div>Visibility: {data.visibility} </div>
-          <div>Wind speed: {data.wind.speed} m/s</div>
+          <div>Wind speed: {data.wind.speed} mph</div>
           </Typography>
         </CardContent>
       </Collapse>
     </Card>
   );
 }
+ 

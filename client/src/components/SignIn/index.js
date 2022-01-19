@@ -3,20 +3,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 function Copyright(props) {
     return (
@@ -27,7 +23,7 @@ function Copyright(props) {
             {...props}
         >
             {"Copyright © "}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit" href="/">
                 Gale
             </Link>{" "}
             {new Date().getFullYear()}
@@ -39,20 +35,25 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignIn = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN_USER);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
     // update state based on form input changes
     const handleChange = (event) => {
-      const { name, value } = event.target;
-  
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
     };
-  
+
     // submit form
     const handleSubmit = async (event) => {
+<<<<<<< HEAD
       event.preventDefault();
 
       try {
@@ -69,12 +70,31 @@ const SignIn = (props) => {
         email: '',
         password: '',
       });
+=======
+        event.preventDefault();
+
+        try {
+            const { data } = await login({
+                variables: { ...formState },
+            });
+
+            Auth.login(data.login.token);
+        } catch (e) {
+            console.error(e);
+        }
+
+        // clear form values
+        setFormState({
+            email: "",
+            password: "",
+        });
+>>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
     };
 
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
-                <CssBaseline />   
+                <CssBaseline />
                 <Box
                     sx={{
                         marginTop: 8,
@@ -119,12 +139,6 @@ const SignIn = (props) => {
                             value={formState.password}
                             onChange={handleChange}
                         />
-                        {/* <FormControlLabel
-                            control={
-                                <Checkbox value="remember" color="primary" />
-                            }
-                            label="Remember me"
-                        /> */}
                         <Button
                             type="submit"
                             fullWidth
@@ -133,6 +147,7 @@ const SignIn = (props) => {
                         >
                             Sign In
                         </Button>
+<<<<<<< HEAD
                         {error && <div>Login failed</div>}
                         {/* <Grid container>
                             <Grid item>
@@ -141,12 +156,14 @@ const SignIn = (props) => {
                                 </Link>
                             </Grid>
                         </Grid> */}
+=======
+>>>>>>> 755a872fb4daa81f52ec7efa2c9ce9a395868a15
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
             </Container>
         </ThemeProvider>
     );
-}
+};
 
 export default SignIn;

@@ -32,7 +32,7 @@ code {
 }
 
 .searchButton {
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 19px;
   margin: auto;
   padding: 3px;
@@ -48,10 +48,10 @@ code {
 
 .wrap {
   max-width: auto;
-  margin: 80px    ;
-  background: white;
-  padding: 10px;
+  margin: 10px;
+  /* padding: 10px; */
   text-align: center; 
+  
   justify-content: center;
 }
 
