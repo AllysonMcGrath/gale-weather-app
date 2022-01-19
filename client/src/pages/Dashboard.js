@@ -91,6 +91,15 @@ const Dashboard = (props) => {
         <Grid item xs={12}>
         <Paper className={classes.paper3}><Weather/></Paper>
         </Grid>
+        <Grid item xs={12}>
+        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
+        </Grid>
+        <Grid item xs={12}>
+        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
+        </Grid>
+        <Grid item xs={12}>
+        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
+        </Grid>
       </Grid>
       
     <main>
