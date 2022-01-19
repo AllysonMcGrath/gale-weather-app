@@ -18,7 +18,7 @@ function Weather() {
       alert("Please enter a city");
     } else {
       const data = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&APPID=${api_key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&units=imperial&APPID=${api_key}`
       )
         .then((res) => res.json())
         .then((data) => data);
