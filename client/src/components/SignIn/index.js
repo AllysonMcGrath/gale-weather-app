@@ -49,23 +49,35 @@ const SignIn = (props) => {
     };
 
     // submit form
-    const handleSubmit = async (event) => {
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     try {
+    //         const { data } = await login({
+    //             variables: { ...formState },
+    //         });
+
+    //         Auth.login(data.login.token);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+
+    //     // clear form values
+    //     setFormState({
+    //         email: "",
+    //         password: "",
+    //     });
+    // };
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-
-        try {
-            const { data } = await login({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e);
-        }
-
-        // clear form values
-        setFormState({
-            email: "",
-            password: "",
+        const data = new FormData(event.currentTarget);
+        
+        login({
+            variables: {
+                email: data.get("email"),
+                password: data.get('password')
+            }
         });
     };
 
