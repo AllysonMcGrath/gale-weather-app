@@ -33,6 +33,7 @@ I WANT a website where I can get the weather just the way I want
 SO THAT I can quickly plan my day
 ```
 ## Link 
+Heroku link will go here 
 
 ## Technology Used
 **1. React(https://reactjs.org/)**
@@ -54,7 +55,7 @@ SO THAT I can quickly plan my day
 **9. Open Weather(https://openweathermap.org/)**
 
 ## Future Development
-With more time and money 
+With more time and money we could take this application and purchase a premium weather api to give our clients more options. Another option would be to bring this to mobile or turn it into a PWA.
 
 ## Credits
 [Allyson](https://github.com/AllysonMcGrath)
