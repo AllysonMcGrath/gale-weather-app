@@ -12,7 +12,7 @@ import { GET_ME } from '../../utils/queries';
 
 function SavedWeather() {
   const [userData, setUserData] = useState({});
-  let savedCitiesArrayDummy = ["austin", "denver", "seattle"]
+  let savedCitiesArrayDummy = ["austin"]
   const { loading, error, data } = useQuery(GET_ME);
   console.log('Loading!!!', loading, data)
 

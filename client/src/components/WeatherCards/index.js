@@ -34,11 +34,6 @@ export default function WeatherCard(props) {
     setExpanded(!expanded);
   };
 
-  const rainImg = ('./rain.mp4');
-
-  if (data.weather.icon === "01d"){
-   return  rainImg
-  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -47,12 +42,11 @@ export default function WeatherCard(props) {
         subheader={new Date().toLocaleTimeString()}
       />
       <CardMedia className='CardMedia'
-        component="video"
+        component="img"
         height="200"
-        autoPlay
         //weather gif from canva below
-        image={rainImg}
-        title="Weather GIF"
+        image={URL_icon}
+        title="Weather Icon"
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
