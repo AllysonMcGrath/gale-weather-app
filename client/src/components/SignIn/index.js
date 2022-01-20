@@ -3,20 +3,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 function Copyright(props) {
     return (
@@ -27,7 +23,7 @@ function Copyright(props) {
             {...props}
         >
             {"Copyright © "}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit" href="/">
                 Gale
             </Link>{" "}
             {new Date().getFullYear()}
@@ -39,42 +35,56 @@ function Copyright(props) {
 const theme = createTheme();
 
 const SignIn = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN_USER);
+
     // update state based on form input changes
     const handleChange = (event) => {
-      const { name, value } = event.target;
-  
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
-    };
-  
-    // submit form
-    const handleSubmit = async (event) => {
-      event.preventDefault();
+        const { name, value } = event.target;
 
-      try {
-        const { data } = await login({
-          variables: { ...formState },
+        setFormState({
+            ...formState,
+            [name]: value,
         });
-        Auth.login(data.login.token);
-      } catch (e) {
-        console.error(e);
-      }
-  
-      // clear form values
-      setFormState({
-        email: '',
-        password: '',
-      });
+    };
+
+    // submit form
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     try {
+    //         const { data } = await login({
+    //             variables: { ...formState },
+    //         });
+
+    //         Auth.login(data.login.token);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+
+    //     // clear form values
+    //     setFormState({
+    //         email: "",
+    //         password: "",
+    //     });
+    // };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        
+        login({
+            variables: {
+                email: data.get("email"),
+                password: data.get('password')
+            }
+        });
     };
 
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
-                <CssBaseline />   
+                <CssBaseline />
                 <Box
                     sx={{
                         marginTop: 8,
@@ -119,12 +129,6 @@ const SignIn = (props) => {
                             value={formState.password}
                             onChange={handleChange}
                         />
-                        {/* <FormControlLabel
-                            control={
-                                <Checkbox value="remember" color="primary" />
-                            }
-                            label="Remember me"
-                        /> */}
                         <Button
                             type="submit"
                             fullWidth
@@ -133,20 +137,12 @@ const SignIn = (props) => {
                         >
                             Sign In
                         </Button>
-                        {error && <div>Login failed</div>}
-                        {/* <Grid container>
-                            <Grid item>
-                                <Link href="/" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid> */}
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
             </Container>
         </ThemeProvider>
     );
-}
+};
 
 export default SignIn;

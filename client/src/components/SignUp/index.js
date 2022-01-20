@@ -38,25 +38,28 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-    const [addUser] = useMutation(ADD_USER);
+    const [addUser, {data}] = useMutation(ADD_USER);
     const history = useHistory();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
         console.log('email pass word aobut ot signup!!',{
+            username: data.get("username"),
             email: data.get("email"),
             password: data.get("password"),
         });
 
-        addUser({
+        const data2 = addUser({
             variables: { 
                 username: data.get("username"),
                 email: data.get("email"),
                 password: data.get("password")
             }
         });
+        console.log(data2)
+        Auth.login(data2.token);
         history.push("/Dashboard");
 
 
