@@ -154,11 +154,11 @@ export default function NavBar(props) {
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
                         {!loggedIn ? (<Button color="inherit" href="signin">
                             Logout
-                        </Button>) : (
-                            <Button color="inherit" href="signin">
+                        </Button>) : 
+                        <Button color="inherit" href="signin">
                             Login
                         </Button>
-                        )}
+                        }
 
                         <Button color="inherit" href="dashboard">
                             dashboard
