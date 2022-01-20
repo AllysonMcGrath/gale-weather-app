@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -9,7 +10,10 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import Button from "@mui/material/Button";
+import { ADD_CITY } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+// import { saveCityIds, getSavedCityIds } from '../../utils/localStorage';
 
 
 const ExpandMore = styled((props) => {
@@ -29,6 +33,8 @@ export default function WeatherCard(props) {
   `${data.cod != 404 ? data.weather[0].icon : null}` +
   ".png";
   const [expanded, setExpanded] = React.useState(false);
+  const [addCity, { error }] = useMutation(ADD_CITY);
+  const cityToSave = { cityName: data.name }
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -40,8 +46,21 @@ export default function WeatherCard(props) {
    return  rainImg
   };
 
+  const handleSaveCity = async () => {
+    try {
+
+      const { userData } = await addCity({
+        variables: { input: cityToSave }
+      });
+      console.log('saved city')
+    } catch (e) {
+      console.log(e);
+    }  };
+
+
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <Button onClick={handleSaveCity}>♥</Button>
       <CardHeader
         title={data.name}
         subheader={new Date().toLocaleTimeString()}

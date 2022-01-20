@@ -46,7 +46,7 @@ const SignIn = (props) => {
   
     const handleChange = (event) => {
       const { name, value } = event.target;
-      setUserFormData({ ...userFormData, [name]: value });
+      setUserFormData({ ...userFormData, [name]: value});
     };
   
     const handleSubmit = async (event) => {
@@ -125,7 +125,7 @@ const SignIn = (props) => {
                             value={userFormData.password}
                             onChange={handleChange}
                         />
-                        <Button
+                        <Button 
                             type="submit"
                             fullWidth
                             variant="contained"

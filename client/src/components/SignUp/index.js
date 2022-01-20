@@ -44,7 +44,7 @@ export default function SignUp() {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
+  const history = useHistory();
   const [addUser, { error }] = useMutation(ADD_USER);
 
   useEffect(() => {
@@ -76,6 +76,7 @@ export default function SignUp() {
         variables: { ...userFormData }
       });
       Auth.login(data.addUser.token);
+      history.push('/Dashboard');
 
     } catch (e) {
       console.log(e);
