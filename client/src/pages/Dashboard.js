@@ -54,8 +54,8 @@ const Dashboard = (props) => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <Grid container direction='row'spacing={3,2} justify='center' classname={classes.grid}>
-      <Grid item xs={12} md={6} >
+    <Grid container direction='row'spacing={3,2} justifyContent='center' className={classes.grid}>
+      <Grid item xs={12}>
         <Paper className={classes.paper}>
         Hello 'User'! Here is the Weather for 'City' this week!
         </Paper>
