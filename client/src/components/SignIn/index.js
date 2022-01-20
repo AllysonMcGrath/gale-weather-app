@@ -13,6 +13,8 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { useHistory } from "react-router-dom";
+
 
 function Copyright(props) {
     return (
@@ -68,17 +70,20 @@ const SignIn = (props) => {
     //         password: "",
     //     });
     // };
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         
-        login({
+        const data2 = login({
             variables: {
                 email: data.get("email"),
                 password: data.get('password')
             }
         });
+        Auth.login(data2.token);
+        history.push("/Dashboard");
     };
 
     return (

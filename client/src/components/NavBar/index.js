@@ -84,6 +84,11 @@ export default function NavBar(props) {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+      };
+
     const menuId = "primary-search-account-menu";
     const renderMenu = (
         <Menu
@@ -155,7 +160,7 @@ export default function NavBar(props) {
                         {!loggedIn ? (<Button color="inherit" href="signin">
                             Login
                         </Button>) : 
-                        <Button color="inherit" href="signin">
+                        <Button color="inherit" href="/login" onClick={logout}>
                             Logout
                         </Button>
                         }
