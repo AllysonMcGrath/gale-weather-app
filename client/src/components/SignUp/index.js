@@ -58,7 +58,6 @@ export default function SignUp() {
                 password: data.get("password")
             }
         });
-        console.log(data2)
         Auth.login(data2.token);
         history.push("/Dashboard");
 
