@@ -1,10 +1,9 @@
 import * as React from "react";
+import { useState } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -12,6 +11,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import { useHistory } from "react-router-dom";
+
 
 function Copyright(props) {
     return (
@@ -22,7 +26,7 @@ function Copyright(props) {
             {...props}
         >
             {"Copyright © "}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit" href="/">
                 Gale
             </Link>{" "}
             {new Date().getFullYear()}
@@ -34,14 +38,28 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+    const [addUser] = useMutation(ADD_USER);
+    const history = useHistory();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
+        console.log('email pass word aobut ot signup!!',{
             email: data.get("email"),
             password: data.get("password"),
         });
+
+        addUser({
+            variables: { 
+                username: data.get("username"),
+                email: data.get("email"),
+                password: data.get("password")
+            }
+        });
+        history.push("/Dashboard");
+
+
     };
 
     return (
@@ -119,13 +137,6 @@ export default function SignUp() {
                         >
                             Sign Up
                         </Button>
-                        {/* <Grid container justifyContent="flex-end">
-                            <Grid item>
-                                <Link href="/signin" variant="body2">
-                                    Already have an account? Sign in
-                                </Link>
-                            </Grid>
-                        </Grid> */}
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 5 }} />

@@ -13,7 +13,7 @@ const Home = () => {
             <div>Carousel of images</div>
         </div>
         <SignUp />
-        <SavedCards />
+        {/* <SavedCards /> */}
     </div>
   );
 };

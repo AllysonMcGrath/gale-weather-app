@@ -16,6 +16,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
+import Auth from '../../utils/auth';
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -57,12 +58,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function NavBar() {
+export default function NavBar(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    const loggedIn = Auth.loggedIn();
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -149,11 +152,16 @@ export default function NavBar() {
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                        <Button color="inherit" href="signin">
+                        {!loggedIn ? (<Button color="inherit" href="signin">
+                            Logout
+                        </Button>) : (
+                            <Button color="inherit" href="signin">
                             Login
                         </Button>
+                        )}
+
                         <Button color="inherit" href="dashboard">
-                            dashboardTEMP
+                            dashboard
                         </Button>
                         {/* need to add onclick */}
                         {/* <IconButton
