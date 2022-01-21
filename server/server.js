@@ -4,6 +4,9 @@ const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware, authenticate } = require('./utils/auth');
+require("dotenv").config();
+
+console.log(process.env.JW_SE);
 
 const app = express();
 const PORT = process.env.PORT || 3001;

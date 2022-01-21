@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
 const { AuthenticationError } = require('apollo-server-express');
+require('dotenv').config();
 
 // set token secret and expiration date
-const secret = 'mysecretsshhhhh';
+const secret = process.env.REACT_APP_JW_SE;
+console.log(secret);
 const expiration = '2h';
 
 module.exports = {

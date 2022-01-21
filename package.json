@@ -18,6 +18,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material/layout-grid": "^13.0.0",
+    "dotenv": "^14.2.0",
     "mdb-react-ui-kit": "^2.2.0"
   }
 }
