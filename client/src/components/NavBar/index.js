@@ -7,9 +7,6 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Auth from '../../utils/auth';
 
-<<<<<<< HEAD
-export default function NavBar() {
-=======
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -135,7 +132,6 @@ export default function NavBar(props) {
         </Menu>
     );
 
->>>>>>> origin/suzette-2
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -149,13 +145,8 @@ export default function NavBar(props) {
                         <Link href="/" underline="none" color="white"> 🌬 GALE </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
-<<<<<<< HEAD
-                    <Box sx={{ display: { xs: "flex", md: "flex" } }}>
-                        <Button color="inherit" href="signin">
-=======
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
                         {!loggedIn ? (<Button color="inherit" href="signin">
->>>>>>> origin/suzette-2
                             Login
                         </Button>) : 
                         <Button color="inherit" href="/login" onClick={logout}>
@@ -164,11 +155,7 @@ export default function NavBar(props) {
                         }
 
                         <Button color="inherit" href="dashboard">
-<<<<<<< HEAD
-                            Dashboard
-=======
                             dashboard
->>>>>>> origin/suzette-2
                         </Button>
                     </Box>
                 </Toolbar>

@@ -42,20 +42,11 @@ export default function WeatherCard(props) {
         subheader={new Date().toLocaleTimeString()}
       />
       <CardMedia className='CardMedia'
-<<<<<<< HEAD
-        component="video"
-=======
         component="img"
->>>>>>> origin/suzette-2
         height="200"
         //weather gif from canva below
-<<<<<<< HEAD
-        image={rainImg}
-        title="Weather GIF"
-=======
         image={URL_icon}
         title="Weather Icon"
->>>>>>> origin/suzette-2
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">

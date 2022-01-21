@@ -53,8 +53,6 @@ const Dashboard = (props) => {
   const classes = useStyles();
   const loggedIn = Auth.loggedIn();
 
-<<<<<<< HEAD
-=======
   const { loading, data } = useQuery(GET_ME);
 
   const userData = data?.me || data?.user || {};
@@ -75,7 +73,6 @@ const Dashboard = (props) => {
   }
 console.log(userData);
 console.log();
->>>>>>> origin/suzette-2
   return (
     
     <Grid container direction='row'spacing={3,2} justifyContent='center' className={classes.grid}>
@@ -108,46 +105,11 @@ console.log();
         <Grid item xs={12} sm={8}>
         <Paper className={classes.paper2}><Weather/></Paper>
         </Grid>
-<<<<<<< HEAD
-        <Grid item xs={12}>
-        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
-        </Grid>
-        <Grid item xs={12}>
-        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
-        </Grid>
-        <Grid item xs={12}>
-        <Paper className={classes.paper3}>Search Result Placeholder</Paper>
-        </Grid>
-      </Grid>
-      
-    <main>
-        <div>
-            {/* {loggedIn ? ( */}
-            <div>            
-                {/* <h2>Hello {userData.username}!</h2> */}
-                <div>
-                
-                {/* <SearchResults /> */}
-                </div>
-                </div>
-                {/* ) :   */}
-                <div>
-                    {/* <h2>You need to be signed in!</h2>
-                    <Link to="/signin">
-                    Go to sign in
-                </Link> */}
-                </div>
-               {/* } */}
-        </div>
-      </main>
-      
-=======
         {/* <Grid item xs={12}>
         <Paper className={classes.paper3}></Paper>
         </Grid> */}
       </Grid>
 
->>>>>>> origin/suzette-2
     </Grid>
   )
     };
