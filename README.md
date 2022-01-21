@@ -58,11 +58,11 @@ Heroku link will go here
 With more time and money we could take this application and purchase a premium weather api to give our clients more options. Another option would be to bring this to mobile or turn it into a PWA.
 
 ## Credits
-[Allyson](https://github.com/AllysonMcGrath)
-[Ernesto](https://github.com/evalecillos)
-[Ken](https://github.com/kenesei91)
-[Suzette](https://github.com/kboston91)
-[Rayce](https://github.com/RayceWheat)
+*  Server, Auth, Pages [Allyson](https://github.com/AllysonMcGrath)
+*  Componets and CSS [Ernesto](https://github.com/evalecillos)
+*  Weather API, Search function [Ken](https://github.com/kenesei91)
+*  Componets and CSS [Suzette](https://github.com/kboston91)
+*  GraphQL backend [Rayce](https://github.com/RayceWheat)
 
 ## License 
 Licensed under the [MIT License](LICENSE)
