@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -38,29 +38,57 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-    const [addUser, {data}] = useMutation(ADD_USER);
+      // set initial form state
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log('email pass word aobut ot signup!!',{
-            username: data.get("username"),
-            email: data.get("email"),
-            password: data.get("password"),
-        });
+  const [addUser, { error }] = useMutation(ADD_USER);
 
-        const data2 = addUser({
-            variables: { 
-                username: data.get("username"),
-                email: data.get("email"),
-                password: data.get("password")
-            }
-        });
-        Auth.login(data2.token);
-        window.location.href = '/dashboard'
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]); 
 
-    };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData }
+      });
+      Auth.login(data.addUser.token);
+      window.location.href = '/dashboard'
+
+    } catch (e) {
+      console.log(e);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
+  };
 
     return (
         <ThemeProvider theme={theme}>
@@ -83,7 +111,7 @@ export default function SignUp() {
                     <Box
                         component="form"
                         noValidate
-                        onSubmit={handleSubmit}
+                        onSubmit={handleFormSubmit}
                         sx={{ mt: 3 }}
                     >
                         <Grid container spacing={2}>
@@ -95,6 +123,8 @@ export default function SignUp() {
                                     label="Username"
                                     name="username"
                                     autoComplete="username"
+                                    onChange={handleInputChange}
+                                    value={userFormData.username}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -105,6 +135,8 @@ export default function SignUp() {
                                     label="City"
                                     name="city"
                                     autoComplete="city"
+                                    onChange={handleInputChange}
+                                    value={userFormData.city}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -115,6 +147,8 @@ export default function SignUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    onChange={handleInputChange}
+                                    value={userFormData.email}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -126,6 +160,8 @@ export default function SignUp() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    onChange={handleInputChange}
+                                    value={userFormData.password}
                                 />
                             </Grid>
                         </Grid>
