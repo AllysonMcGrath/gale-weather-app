@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import NavBar from './components/NavBar'
 import SignIn from "./pages/Login";
-require("dotenv").config();
 
 const httpLink = createHttpLink({
   uri: '/graphql',

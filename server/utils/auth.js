@@ -3,8 +3,7 @@ const { AuthenticationError } = require('apollo-server-express');
 require('dotenv').config();
 
 // set token secret and expiration date
-const secret = process.env.REACT_APP_JW_SE;
-console.log(secret);
+const secret = process.env.JW_SE;
 const expiration = '2h';
 
 module.exports = {

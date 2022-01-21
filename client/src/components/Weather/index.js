@@ -1,11 +1,10 @@
-// require("dotenv").config();
 import React, { useState } from "react";
 //import Display from "../Display";
 //import WeatherCard from "../WeatherCards";
 import "../../App.css";
 import WeatherCard from "../WeatherCards";
 import "../../index.css";
-
+import env from "react-dotenv";
 
 function Weather() {
   const [weather, setWeather] = useState([]);
@@ -13,7 +12,7 @@ function Weather() {
     city: "",
   });
 
-  const api_key = process.env.REACT_APP_API_KEY;
+  const api_key = env.API_KEY;
   console.log(api_key);
   async function weatherData(e) {
     e.preventDefault();
