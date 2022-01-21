@@ -13,11 +13,6 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-<<<<<<< HEAD
-=======
-import { useHistory } from "react-router-dom";
-
->>>>>>> origin/suzette-2
 
 function Copyright(props) {
     return (
@@ -54,7 +49,6 @@ const SignIn = (props) => {
     };
 
     // submit form
-<<<<<<< HEAD
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -73,7 +67,6 @@ const SignIn = (props) => {
             email: "",
             password: "",
         });
-=======
     // const handleSubmit = async (event) => {
     //     event.preventDefault();
 
@@ -106,8 +99,7 @@ const SignIn = (props) => {
             }
         });
         Auth.login(data2.token);
-        history.push("/Dashboard");
->>>>>>> origin/suzette-2
+        window.location.href = '/dashboard';
     };
 
     return (
@@ -173,5 +165,6 @@ const SignIn = (props) => {
         </ThemeProvider>
     );
 };
+}
 
 export default SignIn;

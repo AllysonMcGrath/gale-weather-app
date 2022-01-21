@@ -36,8 +36,9 @@ export default function WeatherCard(props) {
 
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
+<Card sx={2}>
+
+<CardHeader
         title={data.name}
         subheader={new Date().toLocaleTimeString()}
       />
