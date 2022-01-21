@@ -33,33 +33,38 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-
 const SignIn = (props) => {
-    const [formState, setFormState] = useState({ email: "", password: "" });
+    const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+    const [validated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const [login, { error }] = useMutation(LOGIN_USER);
-
-    // update state based on form input changes
     const handleChange = (event) => {
-        const { name, value } = event.target;
-
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
+      const { name, value } = event.target;
+      setUserFormData({ ...userFormData, [name]: value});
     };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      // check if form has everything (as per react-bootstrap docs)
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        
-        const data2 = login({
-            variables: {
-                email: data.get("email"),
-                password: data.get('password')
-            }
+        event.stopPropagation();
+      }
+      try {
+        const { data } = await login({
+          variables: {...userFormData}
         });
-        Auth.login(data2.token);
-        history.push("/Dashboard");
+        Auth.login(data.login.token);
+        window.location.href = '/dashboard'
+      } catch (err) {
+        console.error(err);
+        setShowAlert(true);
+      }
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
     };
 
     return (
@@ -95,7 +100,7 @@ const SignIn = (props) => {
                             name="email"
                             autoComplete="email"
                             autoFocus
-                            value={formState.email}
+                            value={userFormData.email}
                             onChange={handleChange}
                         />
                         <TextField
@@ -107,7 +112,7 @@ const SignIn = (props) => {
                             type="password"
                             id="password"
                             autoComplete="current-password"
-                            value={formState.password}
+                            value={userFormData.password}
                             onChange={handleChange}
                         />
                         <Button
