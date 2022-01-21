@@ -39,7 +39,6 @@ const theme = createTheme();
 
 export default function SignUp() {
     const [addUser, {data}] = useMutation(ADD_USER);
-    const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -59,7 +58,7 @@ export default function SignUp() {
             }
         });
         Auth.login(data2.token);
-        history.push("/Dashboard");
+        window.location.href = '/dashboard'
 
 
     };

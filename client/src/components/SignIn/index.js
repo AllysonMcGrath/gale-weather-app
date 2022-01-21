@@ -70,7 +70,7 @@ const SignIn = (props) => {
     //         password: "",
     //     });
     // };
-    const history = useHistory();
+    // const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -83,7 +83,7 @@ const SignIn = (props) => {
             }
         });
         Auth.login(data2.token);
-        history.push("/Dashboard");
+        window.location.href = '/dashboard'
     };
 
     return (

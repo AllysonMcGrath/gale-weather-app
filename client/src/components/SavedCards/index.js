@@ -40,7 +40,7 @@ function SavedWeather() {
     promiseArray.push(promise)
 
   }
-   Promise.all(promiseArray).then(async function (data) {
+   Promise.all(promiseArray).then(function (data) {
    setWeather(data)
     console.log('THIS IS DATA', data);
   })
