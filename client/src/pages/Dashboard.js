@@ -84,7 +84,7 @@ console.log();
           <SavedWeather>{}</SavedWeather>
           </Paper>
       </Grid>
-      <Grid item xs={12} sm={2}>
+      {/* <Grid item xs={12} sm={2}>
         <Paper className={classes.paper}><SavedWeather>{}</SavedWeather></Paper>
       </Grid>
       <Grid item xs={12} sm={2}>
@@ -95,7 +95,7 @@ console.log();
       </Grid>
       <Grid item xs={12} sm={2}>
         <Paper className={classes.paper}><SavedWeather>{}</SavedWeather></Paper>
-      </Grid>
+      </Grid> */}
       <Grid container spacing={4} className={classes.grid2}>
         <Grid item xs={12} sm={4}>
         <Paper className={classes.paper2}><PreferenceToggle /></Paper>
