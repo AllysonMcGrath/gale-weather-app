@@ -35,7 +35,6 @@ export default function WeatherCard(props) {
   };
 
 
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -45,9 +44,9 @@ export default function WeatherCard(props) {
       <CardMedia className='CardMedia'
         component="img"
         height="200"
-        //weather gif from canva below
+
         image={URL_icon}
-        title="Weather GIF"
+        title="Weather Icon"
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">

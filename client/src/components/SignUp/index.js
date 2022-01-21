@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,6 +11,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import { useHistory } from "react-router-dom";
+
 
 function Copyright(props) {
     return (
@@ -32,14 +38,30 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-    const handleSubmit = (event) => {
+    const [addUser, {data}] = useMutation(ADD_USER);
+    const history = useHistory();
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
+        console.log('email pass word aobut ot signup!!',{
+            username: data.get("username"),
             email: data.get("email"),
             password: data.get("password"),
         });
+
+        const data2 = addUser({
+            variables: { 
+                username: data.get("username"),
+                email: data.get("email"),
+                password: data.get("password")
+            }
+        });
+        Auth.login(data2.token);
+        history.push("/Dashboard");
+
+
     };
 
     return (
@@ -48,7 +70,7 @@ export default function SignUp() {
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 0,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
