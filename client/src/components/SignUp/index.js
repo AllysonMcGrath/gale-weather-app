@@ -14,6 +14,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ADD_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
+<<<<<<< HEAD
+=======
+import { useHistory } from "react-router-dom";
+
+>>>>>>> origin/suzette-2
 
 function Copyright(props) {
     return (
@@ -36,24 +41,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+<<<<<<< HEAD
     const [addUser] = useMutation(ADD_USER);
 
     const handleSubmit = (event) => {
+=======
+    const [addUser, {data}] = useMutation(ADD_USER);
+    const history = useHistory();
+
+    const handleSubmit = async (event) => {
+>>>>>>> origin/suzette-2
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
+        console.log('email pass word aobut ot signup!!',{
+            username: data.get("username"),
             email: data.get("email"),
             password: data.get("password"),
         });
 
+<<<<<<< HEAD
         addUser({
+=======
+        const data2 = addUser({
+>>>>>>> origin/suzette-2
             variables: { 
                 username: data.get("username"),
                 email: data.get("email"),
                 password: data.get("password")
             }
         });
+<<<<<<< HEAD
+=======
+        Auth.login(data2.token);
+        history.push("/Dashboard");
+
+>>>>>>> origin/suzette-2
 
     };
 
