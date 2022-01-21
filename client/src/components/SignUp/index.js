@@ -44,7 +44,7 @@ export default function SignUp() {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
+  const history = useHistory();
   const [addUser, { error }] = useMutation(ADD_USER);
 
   useEffect(() => {
