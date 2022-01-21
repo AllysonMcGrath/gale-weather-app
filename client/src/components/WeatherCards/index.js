@@ -40,6 +40,11 @@ export default function WeatherCard(props) {
     setExpanded(!expanded);
   };
 
+  const rainImg = ('./rain.mp4');
+
+  if (data.weather.icon === "01d"){
+   return  rainImg
+  };
 
   const handleSaveCity = async () => {
     try {
@@ -54,18 +59,19 @@ export default function WeatherCard(props) {
 
 
   return (
-<Card sx={2}>
-
-<CardHeader
+  <Card sx={2}>      
+  <Button onClick={handleSaveCity}>♥</Button>
+      <CardHeader
         title={data.name}
         subheader={new Date().toLocaleTimeString()}
       />
       <CardMedia className='CardMedia'
-        component="img"
+        component="video"
         height="200"
+        autoPlay
         //weather gif from canva below
-        image={URL_icon}
-        title="Weather Icon"
+        image={rainImg}
+        title="Weather GIF"
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
