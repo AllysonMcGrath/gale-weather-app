@@ -12,7 +12,11 @@
     "bcrypt": "^4.0.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+<<<<<<< HEAD
     "graphql": "^16.2.0",
+=======
+    "graphql": "^15.5.0",
+>>>>>>> develop
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7"
   },

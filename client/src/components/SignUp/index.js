@@ -42,19 +42,21 @@ export default function SignUp() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
+        console.log('email pass word aobut ot signup!!',{
+            username: data.get("username"),
             email: data.get("email"),
             password: data.get("password"),
         });
 
-        addUser({
+        const data2 = addUser({
             variables: { 
                 username: data.get("username"),
                 email: data.get("email"),
                 password: data.get("password")
             }
         });
-
+        Auth.login(data2.token);
+        windows.location.href='./dashboard';
     };
 
     return (
