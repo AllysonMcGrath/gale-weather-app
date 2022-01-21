@@ -35,7 +35,7 @@ I WANT a website where I can get the weather just the way I want
 SO THAT I can quickly plan my day
 ```
 ## Link 
-Heroku link will go here 
+The app is deployed here!(https://enigmatic-everglades-42855.herokuapp.com/)
 
 ## Technology Used
 **1. React(https://reactjs.org/)**
