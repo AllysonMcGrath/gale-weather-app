@@ -60,7 +60,6 @@ export default function SignUp() {
         Auth.login(data2.token);
         window.location.href = '/dashboard'
 
-
     };
 
     return (
