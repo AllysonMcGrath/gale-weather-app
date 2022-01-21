@@ -1,5 +1,7 @@
 # gale-weather-app
 
+[Image](!https://raw.githubusercontent.com/AllysonMcGrath/gale-weather-app/main/public/image/Gale-screen-shot.jpg)
+
 ## Description
 A majority of modern weather sites are filled either with too much unecessory information, riddled with adds, or worse both. 
 
