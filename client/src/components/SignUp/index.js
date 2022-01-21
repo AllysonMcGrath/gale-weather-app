@@ -59,8 +59,7 @@ export default function SignUp() {
             }
         });
         Auth.login(data2.token);
-        history.push("/Dashboard");
-
+        window.location.href = '/dashboard'
 
     };
 
